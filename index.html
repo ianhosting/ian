@@ -133,42 +133,7 @@
 
         <!-- 가입 폼 -->
         <div class="signup-form">
-            <h2>회원 가입</h2>
-            <form id="signupForm">
-                <input type="text" id="name" placeholder="이름" required>
-                <input type="email" id="email" placeholder="이메일" required>
-                <select id="plan" required>
-                    <option value="">호스팅 계획 선택</option>
-                    <option value="basic">기본 플랜(500MB)(월:무료)</option>
-                    <option value="premium">프리미엄 플랜(2.5GB)(월:3000원)</option>
-                    <option value="enterprise">기업 플랜(5.8GB)(원:15000)</option>
-                </select>
-                <button type="submit">가입하기</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // 폼 제출 시 페이지 리로드 방지
-
-            // 사용자 입력값 가져오기
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const plan = document.getElementById('plan').value;
-
-            // 입력값 검증
-            if (!name || !email || !plan) {
-                alert('모든 항목을 입력해주세요.');
-                return;
-            }
-
-            // 가입 성공 메시지 (이후 실제 데이터베이스 저장 및 처리 필요)
-            alert(`가입이 완료되었습니다!\n이름: ${name}\n이메일: ${email}\n선택한 플랜: ${plan}`);
-            
-            // 폼 초기화
-            document.getElementById('signupForm').reset();
-        });
-    </script>
+            <h2>호스팅 가입</h2>
+            <p>"cherrymango66@gmail.com"으로 가입은 해주세요.</p>
 </body>
 </html>
