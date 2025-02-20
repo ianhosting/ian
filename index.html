@@ -3,37 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian호스팅 소개</title>
+    <title>Ian호스팅 가입</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             text-align: center;
+            color: #333;
+            overflow-x: hidden;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #333;
+            font-size: 36px;
+            color: #1a73e8;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
         p {
+            font-size: 18px;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            animation: fadeIn 1s ease-in;
+        }
+        .feature {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 150px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #1a73e8;
+        }
+        .cta-button {
+            margin-top: 40px;
+            padding: 15px 25px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #1669c1;
+        }
+
+        /* 애니메이션 효과 */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* 가입 폼 스타일 */
+        .signup-form {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .signup-form h2 {
+            color: #1a73e8;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .signup-form input, .signup-form select, .signup-form button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .signup-form button {
+            background-color: #1a73e8;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .signup-form button:hover {
+            background-color: #1669c1;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ian호스팅</h1>
-        <p>Ian호스팅은 무료이면서 안정적이고 빠른 웹 호스팅 서비스를 제공합니다.</p>
-        <p>강력한 보안, 높은 성능, 그리고 손쉬운 사용성을 자랑하는 호스팅 서비스를 경험해보세요.</p>
+        <h1>Ian호스팅 가입</h1>
+        <p>당신의 웹사이트를 위한 완벽한 호스팅을 시작하세요. 아래 양식을 작성하고 가입하세요.</p>
+
+        <!-- 호스팅 서비스 특징 -->
+        <div class="features">
+            <div class="feature">
+                <h3>빠른 속도</h3>
+                <p>최고의 서버 성능으로 사이트 속도를 극대화하세요.</p>
+            </div>
+            <div class="feature">
+                <h3>보안 강화</h3>
+                <p>최첨단 보안 시스템으로 사이트를 안전하게 보호합니다.</p>
+            </div>
+            <div class="feature">
+                <h3>간편한 관리</h3>
+                <p>사용하기 쉬운 관리 대시보드로 손쉽게 운영하세요.</p>
+            </div>
+        </div>
+
+        <!-- 가입 폼 -->
+        <div class="signup-form">
+            <h2>회원 가입</h2>
+            <form id="signupForm">
+                <input type="text" id="name" placeholder="이름" required>
+                <input type="email" id="email" placeholder="이메일" required>
+                <select id="plan" required>
+                    <option value="">호스팅 계획 선택</option>
+                    <option value="basic">기본 플랜(500MB)(월:무료)(</option>
+                    <option value="premium">프리미엄 플랜(2.5GB)(월:3000원)</option>
+                    <option value="enterprise">기업 플랜(5.8GB)(원:15000)</option>
+                </select>
+                <button type="submit">가입하기</button>
+            </form>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // 폼 제출 시 페이지 리로드 방지
+
+            // 사용자 입력값 가져오기
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const plan = document.getElementById('plan').value;
+
+            // 입력값 검증
+            if (!name || !email || !plan) {
+                alert('모든 항목을 입력해주세요.');
+                return;
+            }
+
+            // 가입 성공 메시지 (이후 실제 데이터베이스 저장 및 처리 필요)
+            alert(`가입이 완료되었습니다!\n이름: ${name}\n이메일: ${email}\n선택한 플랜: ${plan}`);
+            
+            // 폼 초기화
+            document.getElementById('signupForm').reset();
+        });
+    </script>
 </body>
 </html>
