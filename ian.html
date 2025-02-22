@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>순위</title>
+    <title>순위표</title>
     <style>
         table {
             width: 100%;
             border-collapse: collapse;
+            display: none; /* 초기에는 숨김 */
         }
         th, td {
             border: 1px solid black;
@@ -18,54 +19,78 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script>
+        function checkPassword() {
+            var password = prompt("비밀번호를 입력하세요:");
+            if (password === "1234") {  // 원하는 비밀번호 설정
+                document.getElementById("rankingTable").style.display = "table";
+                document.getElementById("passwordPrompt").style.display = "none";
+            } else {
+                alert("비밀번호가 틀렸습니다!");
+            }
+        }
+    </script>
 </head>
 <body>
 
     <h2>순위표</h2>
-    <table>
+    <button id="passwordPrompt" onclick="checkPassword()">순위표 보기</button>
+
+    <table id="rankingTable">
         <tr>
             <th>순위</th>
             <th>이름</th>
+            <th>점수</th>
         </tr>
         <tr>
             <td>1</td>
-            <td>정영실</td>
+            <td>홍길동</td>
+            <td>98</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>박경이</td>
+            <td>김철수</td>
+            <td>95</td>
         </tr>
         <tr>
             <td>3</td>
-            <td>박해경</td>
+            <td>이영희</td>
+            <td>92</td>
         </tr>
         <tr>
             <td>4</td>
-            <td>까망이(개)</td>
+            <td>박민수</td>
+            <td>90</td>
         </tr>
         <tr>
             <td>5</td>
-            <td>이명화</td>
+            <td>최지훈</td>
+            <td>88</td>
         </tr>
         <tr>
             <td>6</td>
-            <td></td>
+            <td>강수진</td>
+            <td>85</td>
         </tr>
         <tr>
             <td>7</td>
-            <td></td>
+            <td>윤아람</td>
+            <td>82</td>
         </tr>
         <tr>
             <td>8</td>
-            <td></td>
+            <td>오세준</td>
+            <td>80</td>
         </tr>
         <tr>
             <td>9</td>
-            <td></td>
+            <td>정다희</td>
+            <td>78</td>
         </tr>
         <tr>
             <td>10</td>
-            <td></td>
+            <td>한도윤</td>
+            <td>75</td>
         </tr>
     </table>
 
