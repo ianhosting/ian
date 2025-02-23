@@ -1,4 +1,4 @@
-이 사이트는 ian호스팅 메인 페이지및 저작권 관리 사이트 입니다.
-이 사이트를 불로그에 공유 하지 마세요.
-이 사이트는 보안이 중요하기 때문에 공유를 금지 합니다.
-당신만 알으세요.
+This site is the ian hosting main page and copyright management site.
+Please do not share this site on your blog.
+Because security is important to this site, sharing is prohibited.
+Just you know.
