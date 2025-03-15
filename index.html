@@ -14,6 +14,36 @@
             color: #333;
             overflow-x: hidden;
         }
+
+        /* 메뉴바 스타일 */
+        .navbar {
+            background: linear-gradient(135deg, #1a73e8, #1669c1); /* 그라데이션 효과 */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #1669c1;
+            transform: translateY(-5px); /* 호버 시 위로 떠오르는 효과 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 추가 */
+        }
+
+        /* 페이지 컨테이너 스타일 */
         .container {
             max-width: 900px;
             margin: 50px auto;
@@ -111,12 +141,23 @@
     </style>
 </head>
 <body>
+    <!-- 메뉴바 추가 -->
+    <div class="navbar">
+        <a href="#home">홈</a>
+        <a href="#features">특징</a>
+        <a href="#signup">가입</a>
+        <a href="#contact">연락처</a>
+    </div>
+
     <div class="container">
-        <h1>Ian호스팅 가입</h1>
-        <p>Ian호스팅은 무료 입니다. 부담 없이 시작 하세요.</p>
+        <!-- 홈 섹션 -->
+        <div id="home">
+            <h1>Ian호스팅 가입</h1>
+            <p>Ian호스팅은 무료 입니다. 부담 없이 시작 하세요.</p>
+        </div>
 
         <!-- 호스팅 서비스 특징 -->
-        <div class="features">
+        <div class="features" id="features">
             <div class="feature">
                 <h3>빠른 속도</h3>
                 <p>최고의 서버 성능으로 사이트 속도를 극대화하세요.</p>
@@ -132,8 +173,17 @@
         </div>
 
         <!-- 가입 폼 -->
-        <div class="signup-form">
+        <div class="signup-form" id="signup">
             <h2>호스팅 가입</h2>
             <p>"cherrymango66@gmail.com"으로 가입은 해주세요.</p>
+        </div>
+
+        <!-- 연락처 섹션 -->
+        <div id="contact">
+            <h2>연락처</h2>
+            <p>궁금한 사항은 언제든지 이메일을 보내주세요.</p>
+            <p>Email: <a href="mailto:cherrymango66@gmail.com">cherrymango66@gmail.com</a></p>
+        </div>
+    </div>
 </body>
 </html>
